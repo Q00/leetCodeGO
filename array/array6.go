@@ -34,13 +34,13 @@ func Intersect(nums1 []int, nums2 []int) []int {
 	save := map[int]int{}
 	list := make([]int, 0)
 
-	if len(nums1) > len(nums2) {
+	// temp = nums1
+	// nums2 > nums1 => temp = nums2
+	sumArray = nums1
+	compareArray = nums2
+	if len(nums1) < len(nums2) {
 		sumArray = nums2
 		compareArray = nums1
-
-	} else {
-		sumArray = nums1
-		compareArray = nums2
 	}
 
 	for _, value := range compareArray {
