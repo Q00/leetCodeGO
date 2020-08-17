@@ -6,6 +6,15 @@ Follow up:
 Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
 Could you do it in-place with O(1) extra space?
 
+=> after reverse all array and reverse slice until k
+
+how to array reverse ? with recursive slice
+func reverseInts(input []int) []int {
+	if len(input) == 0 {
+		return input
+	}
+	return append(reverseInts(input[1:]), input[0])
+}
 
 Example 1:
 
