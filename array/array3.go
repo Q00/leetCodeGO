@@ -16,6 +16,16 @@ func reverseInts(input []int) []int {
 	return append(reverseInts(input[1:]), input[0])
 }
 
+func reverse(target []int, start, end int) {
+	for start < end {
+		temp := target[start]
+		target[start] = target[end]
+		target[end] = temp
+		start++
+		end--
+	}
+}
+
 Example 1:
 
 Input: nums = [1,2,3,4,5,6,7], k = 3
