@@ -87,6 +87,7 @@ func IsValidSudoku(board [][]byte) bool {
 		}
 	}
 
+	// for문 줄이기
 	for i := 0; i < 9; i = i + 3 {
 		for j := 0; j < 9; j = j + 3 {
 			checkRow := map[int]int{}
