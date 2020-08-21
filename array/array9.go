@@ -15,18 +15,27 @@ return [0, 1].
 
 // TwoSum add two propery to make target
 func TwoSum(nums []int, target int) []int {
-	check := map[int][]int{}
+	// check := map[int][]int{}
+
+	// for i, v := range nums {
+	// 	check[v] = append(check[v], i)
+
+	// 	if len(check[target-v]) >= 1 {
+	// 		// same value has two property in array
+	// 		if v == target-v && len(check[v]) > 1 {
+	// 			return check[v]
+	// 		} else if v != target-v {
+	// 			return []int{check[target-v][0], check[v][0]}
+	// 		}
+	// 	}
+	// }
+
+	check := map[int]int{}
 
 	for i, v := range nums {
-		check[v] = append(check[v], i)
-
-		if len(check[target-v]) >= 1 {
-			// same value has two property in array
-			if v == target-v && len(check[v]) > 1 {
-				return check[v]
-			} else if v != target-v {
-				return []int{check[target-v][0], check[v][0]}
-			}
+		curr, exist := check[target-v]
+		if exist {
+			return []int{i, curr}
 		}
 	}
 
