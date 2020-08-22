@@ -20,7 +20,7 @@ Constraints:
 s consists only of printable ASCII characters.
 */
 
-func check(sr []int, start, end int) bool {
+func check(sr []byte, start, end int) bool {
 	for start < end {
 		if sr[start] != sr[end] {
 			return false
@@ -35,19 +35,19 @@ func check(sr []int, start, end int) bool {
 // IsPalindrome check Palindrom ( alphanumeric )
 func IsPalindrome(s string) bool {
 
-	r := make([]int, len(s))
+	r := make([]byte, len(s))
 	index := 0
-	for _, v := range []rune(s) {
-		n := int(v)
-		if n >= 65 && n <= 90 {
-			r[index] = n + 32
+
+	for _, v := range s {
+		if v >= 'A' && v <= 'Z' {
+			r[index] = byte(v + 32)
 			index++
 
-		} else if n >= 97 && n <= 122 {
-			r[index] = n
+		} else if v >= 'a' && v <= 'z' {
+			r[index] = byte(v)
 			index++
-		} else if n >= 48 && n <= 57 {
-			r[index] = n
+		} else if v >= '0' && v <= '9' {
+			r[index] = byte(v)
 			index++
 		}
 	}
