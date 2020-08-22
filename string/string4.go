@@ -20,17 +20,16 @@ What if the inputs contain unicode characters? How would you adapt your solution
 */
 func IsAnagram(s string, t string) bool {
 	smap := make([]int, 26)
-	short := s
-	long := t
-	if len(s) > len(t) {
-		short = t
-		long = s
+
+	if len(s) != len(t) {
+		return false
 	}
-	for _, v := range short {
+
+	for _, v := range s {
 		smap[v-'a']++
 	}
 
-	for _, v := range long {
+	for _, v := range t {
 		if smap[v-'a'] == 0 {
 			return false
 		}
