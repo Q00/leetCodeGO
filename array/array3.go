@@ -73,3 +73,24 @@ func Rotate(nums []int, k int) {
 	}
 
 }
+
+func reverse(target []int, start, end int) {
+	for start < end {
+		temp := target[start]
+		target[start] = target[end]
+		target[end] = temp
+		start++
+		end--
+	}
+}
+
+func rotation(nums []int, k int) {
+	// arr  K
+
+	// 처음부터 끝까지 reverse
+	reverse(nums, 0, len(nums)-1)
+	// k만큼 돌리고
+	reverse(nums, 0, k)
+	// 나머지 돌리고
+	reverse(nums, k, len(nums)-1) // 0 1 2 k 부터 0 1 2 해서
+}
